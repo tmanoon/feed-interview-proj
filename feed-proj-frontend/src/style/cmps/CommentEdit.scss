@@ -1,0 +1,26 @@
+.comment-edit {
+    width: 100%;
+    &>* {
+        font-family: sans-serif;
+        margin-block-end: 10px;
+    }
+
+    background-color: #eaeaead8;
+
+    textarea {
+        resize: none;
+    }
+
+    .submit-btn {
+        color: #fff;
+        background-color: #7fc5e3;
+        width: 80px;
+        padding: 4px;
+        text-align: center;
+        border-radius: 8px;
+        cursor: pointer;
+        align-self: flex-end;
+        font-size: 14px;
+
+    }
+}

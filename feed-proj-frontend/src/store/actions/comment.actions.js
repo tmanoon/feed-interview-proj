@@ -1,10 +1,11 @@
 import { commentService } from '../../services/comment.service'
-import { store } from '../store/store'
-import { ADD_COMMENT, REMOVE_COMMENT, SET_COMMENTS, UPDATE_COMMENT } from '../reducers/comment.reducer'
+import { store } from '../store'
+import { ADD_COMMENT, REMOVE_COMMENT, SET_COMMENTS, UPDATE_COMMENT, SET_FILTER_BY } from '../reducers/comment.reducer'
 
 export async function loadComments() {
     try {
-        const comments = await commentService.query()
+        const filterBy = store.getState().commentModule.filterBy
+        const comments = await commentService.query(filterBy)
         console.log('Comments from DB:', comments)
         store.dispatch( {type: SET_COMMENTS, comments} )
     } catch (err) {
@@ -44,4 +45,8 @@ export async function updateComment(comment) {
         console.log('Cannot save comment', err)
         throw err
     }
+}
+
+export function setFilter(filterBy) {
+    store.dispatch( {type: SET_FILTER_BY, filterBy} )
 }
