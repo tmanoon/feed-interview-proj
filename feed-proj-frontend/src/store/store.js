@@ -3,7 +3,6 @@ import { commentReducer } from './reducers/comment.reducer'
 
 const rootReducer = combineReducers({
     commentModule: commentReducer,
-
 })
 
 
