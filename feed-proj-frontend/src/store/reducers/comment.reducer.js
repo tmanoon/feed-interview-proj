@@ -5,6 +5,7 @@ export const UPDATE_COMMENT = 'UPDATE_COMMENT'
 
 const initialState = {
   comments: [],
+  filterBy: {}
 }
 
 export function commentReducer(state = initialState, action = {}) {
